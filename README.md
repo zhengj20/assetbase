@@ -4,6 +4,20 @@
 
 > 前后端分离：FastAPI（异步）+ Vue 3 + MySQL 8。开箱即用，内置演示数据，可作为二次开发底座。
 
+## 📸 界面预览
+
+| 驾驶舱 · 核心指标 | 驾驶舱 · 价值分布与新增趋势 |
+|:---:|:---:|
+| ![驾驶舱核心指标](docs/screenshots/dashboard-top.jpg) | ![驾驶舱图表](docs/screenshots/dashboard-charts.jpg) |
+
+| 仓库库存 | 资产统计（组织 / 空间维度下钻） |
+|:---:|:---:|
+| ![仓库库存](docs/screenshots/warehouse-stock.jpg) | ![资产统计](docs/screenshots/asset-stats.jpg) |
+
+| 工作台（待办与快捷发起） | 登录 |
+|:---:|:---:|
+| ![工作台](docs/screenshots/workbench.jpg) | ![登录](docs/screenshots/login.jpg) |
+
 ## ✨ 功能特性
 
 - **资产全生命周期**：资产台账、组合包、仓库库存、折旧管理、资产统计
