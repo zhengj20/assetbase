@@ -1,0 +1,55 @@
+# ===== 环境与密钥（切勿提交）=====
+.env
+.env.local
+.env.*.local
+backend/.env
+backend/.env.local
+*.pem
+*.key
+*.p12
+*.pfx
+frontend/certs/
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ===== Node / 前端 =====
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# ===== 构建产物 =====
+dist/
+frontend/dist/
+build/
+*.local
+
+# ===== 用户上传文件 =====
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# ===== 开发临时产物 =====
+plan_extracted.txt
+test_export_*.xlsx
+*.log
+logs/
+
+# ===== 编辑器 / 系统 =====
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

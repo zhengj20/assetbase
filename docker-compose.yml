@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: guding-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-change-me-db-password}
+      MYSQL_DATABASE: guding
+      MYSQL_CHARSET: utf8mb4
+      MYSQL_COLLATION: utf8mb4_unicode_ci
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: guding-backend
+    restart: always
+    ports:
+      - "5200:5200"
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=${DB_PASSWORD:-change-me-db-password}
+      - DB_NAME=guding
+      - JWT_SECRET=${JWT_SECRET:-change-me-jwt-secret}
+      - JWT_EXPIRE_HOURS=8
+      - HOST=0.0.0.0
+      - PORT=5200
+    depends_on:
+      - mysql
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: guding-frontend
+    restart: always
+    ports:
+      - "5201:80"
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:
